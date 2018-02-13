@@ -4,10 +4,82 @@ block title
     title Koa Movie 首页
 
 block content
-    .container
-        .row
-            .col-md-8
-                h1 Hi #{you}
-                p This is #{me}
-            .col-md-4
-                h3 测试模板引擎中间件      
+    include ./includes/header
+    .container-fluid
+        .sidebar
+        .content
+            .row
+                .col-md-6
+                    .card
+                        img.card-img-top(src="http://o9spjqu1b.bkt.clouddn.com/5570778b-f7fc-4bcf-9df3-e47a6954b75a", data-video="http://video.iblack7.com/tgGnZRn3W4Ajw6PGcA_9Z.mp4")
+                        .card-body
+                            h4.card-title 这是电影标题
+                            p.card-desc 电影描述
+                        .card-footer
+                            small.text-muted 1天前更新
+                .col-md-6
+                    .card
+                        img.card-img-top(src="http://o9spjqu1b.bkt.clouddn.com/5570778b-f7fc-4bcf-9df3-e47a6954b75a", data-video="http://video.iblack7.com/tgGnZRn3W4Ajw6PGcA_9Z.mp4")
+                        .card-body
+                            h4.card-title 这是电影标题
+                            p.card-desc 电影描述
+                        .card-footer
+                            small.text-muted 1天前更新
+            .row
+                .col-md-6
+                    .card
+                        img.card-img-top(src="http://o9spjqu1b.bkt.clouddn.com/5570778b-f7fc-4bcf-9df3-e47a6954b75a", data-video="http://video.iblack7.com/tgGnZRn3W4Ajw6PGcA_9Z.mp4")
+                        .card-body
+                            h4.card-title 这是电影标题
+                            p.card-desc 电影描述
+                        .card-footer
+                            small.text-muted 1天前更新
+                .col-md-6
+                    .card
+                        img.card-img-top(src="http://o9spjqu1b.bkt.clouddn.com/5570778b-f7fc-4bcf-9df3-e47a6954b75a", data-video="http://video.iblack7.com/tgGnZRn3W4Ajw6PGcA_9Z.mp4")
+                        .card-body
+                            h4.card-title 这是电影标题
+                            p.card-desc 电影描述
+                        .card-footer
+                            small.text-muted 1天前更新     
+    #myModal.modal.fade.bd-example-modal-log(tabindex="-1", role="dialog", aria-labelledby="myLargModalLabel", aria-hidden="true")
+        .modal-dialog.modal-log
+            #videoModal.modal-content
+    
+                            
+
+    include ./includes/script      
+
+    script.
+        let player = null;
+        $(function() {
+            $("#myModal").on("hidden.bs.modal", function (e) {
+                if (player && player.pause) player.pause();
+            })
+            $(".card-img-top").click(function(e) {
+                const video = $(this).data("video");
+                const image = $(this).attr("src");
+
+                $("#myModal").modal("show");
+
+                if(!player) {
+                    player = new DPlayer({
+                        container: document.getElementById("videoModal"),
+                        screenhot: true,
+                        video: {
+                            url: video,
+                            pic: image,
+                            thumbnils: image
+                        }
+                    })
+                } else {
+                    if(play.video.currentSrc !== video) {
+                        player.switchVideo({
+                            url: video,
+                            pic: image,
+                            type: "auto"
+                        })
+                    }
+                }
+            })
+        })
