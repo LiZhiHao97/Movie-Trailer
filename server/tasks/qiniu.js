@@ -59,9 +59,9 @@ const uploadToQiniu = async (url, key) => {
                     doubanId: '26628329',
                     poster: 'https://img1.doubanio.com/view/photo/l_ratio_poster/public/p2511935678.jpg',
                     cover: 'https://img3.doubanio.com/img/trailer/medium/2511634966.jpg?1516871780',
-                    videoKey: 'odeNdEVQ5OrATvwSZni_y.mp4',
-                    coveroKey: 'Dl6KG2rAxM0QcUoHG7VAj.png',
-                    posterKey: '_~bk0D8WgGPeVvt6uQxDa.png' 
+                    videoKey: 'http://p4atvga6r.bkt.clouddn.com/odeNdEVQ5OrATvwSZni_y.mp4',
+                    coveroKey: 'http://p4atvga6r.bkt.clouddn.com/Dl6KG2rAxM0QcUoHG7VAj.png',
+                    posterKey: 'http://p4atvga6r.bkt.clouddn.com/_~bk0D8WgGPeVvt6uQxDa.png' 
                 }
             } catch (err){
                 console.log(err);
